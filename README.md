@@ -20,36 +20,38 @@ To complete the development, each release will be broken down into smaller tasks
 #Decomposition of overall problem, epic style tasks
 
 <h4>Release 1 Tasks</h4>
-1)Setup the 'adaship_config.ini'
-2)Create Setup interface which will give the user the gamemode options
-3)Display shipboard for user to placeships
-4)Create autoplace ship function that will allow the user to have the system place ships
-5)Allow user to quit and reset their shipboard
-6)Continue once user is happy with completed shipboard
-7)Get computer to autoplace their ships
-8)Create turn based process 
-9)Get user to enter fire location
-10)Determine wether hit or miss and output result to player
-11)Create function to determine if win conditions have been met
-12)Allow user to quit game
+1)Setup the 'adaship_config.ini'<br>
+2)Create Setup interface which will give the user the gamemode options<br>
+3)Display shipboard for user to placeships<br>
+4)Create autoplace ship function that will allow the user to have the system place ships<br>
+5)Allow user to quit and reset their shipboard<br>
+6)Continue once user is happy with completed shipboard<br>
+7)Get computer to autoplace their ships<br>
+8)Create turn based process <br>
+9)Get user to enter fire location<br>
+10)Determine wether hit or miss and output result to player<br>
+11)Create function to determine if win conditions have been met<br>
+12)Allow user to quit game<br>
 13)Get user to press a key to end turn
 
 <h4>Release 2 Tasks</h4>
-1)Allow user to input any valid board size through the 'adaship_config.ini'
-2)Update setup menu to include player vs player and salvo gamemode
-3)Implement function that allows for more than 1 coordinate to be entered.
-4)Create function tha tracks how many ships remain
-5)Repeat 'fire' for each coordinate from task 3
+1)Allow user to input any valid board size through the 'adaship_config.ini'<br>
+2)Update setup menu to include player vs player and salvo gamemode<br>
+3)Implement function that allows for more than 1 coordinate to be entered.<br>
+4)Create function tha tracks how many ships remain<br>
+5)Repeat 'fire' for each coordinate from task 3<br>
 6)Output result of each 'fire' to the user
 
 <h4>Release 3 Tasks</h4>
-1)Allow user to add any number of ships through the 'adaship_config.ini'
-2)Update setup menu to include hidden mines gamemode
-3)Create that randomly places mies on each players board
-4)Update hit -> If hit on mine mark hits on surrounding locations
+1)Allow user to add any number of ships through the 'adaship_config.ini'<br>
+2)Update setup menu to include hidden mines gamemode<br>
+3)Create that randomly places mies on each players board<br>
+4)Update hit -> If hit on mine mark hits on surrounding locations<br>
 5)Update computer auto-hit by keeping track of hit locations and targeting surrounding pieces to determine which direction the ship is placed, once sunk select new random firing location 
 
 #Object Oriented design, Planed phased breakdown into smaller tasks
+<h4>Object Oriented Design</h4>
+For the program to follow object oriented principles I plan to create several objects. The plan is to have a board object. This board will have x and y values that are used to setup the boards size and coordinates. It will also have various methods that track and validate the placement of ships. Players are also objects, give that both the human and computer player share some characteristics it allows for inheritance. Both players have will have a property that determines wether they are human or not. From the player class there will be a computer player class and a human player class. The computer player will inherit features from the player class. The human player will also inherit from the player class. This reduces code repetition as both human and computer players share features. However the computer player will be calling an automatic placement and automatic firing function whereas the human player is given options before these funcions can be called. Another possible object could be a ship object which contains the properties of each ship and keeps track of the hits each ship takes. 
 
 <h3>Development</h3>
 #Tasks for each phase of development
