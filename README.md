@@ -1,6 +1,68 @@
 <h1>AdaShip - Advanced Programming</h1>
 <h4>By Rebeca Williams</h4>
 
+<h3>Challenge Outline</h3>
+#Summary & Review of problem + propsed solution
+
+AdaShip is similar to the well known Battleships game. By default it is a 2 player game where each player takes turns in trying to elimenate the other players boats. To win the game you must destroy/sink all of your opponents boats.
+
+#UML Diagram
+#Working Plan, Overall Approach, Development Stratergy, Approach to Quality
+
+For this project there are 3 releases. The first release forms the well known Battleship game where the player will be playing against th computer.For a default game each player has 2 10x10 boards. One will be used for your ships, this is known as a shipboard and is where you will place you ships as well as hits made by your opponent. The other board is known as the targetboard. This is where you can keep track of where you have fired and if it was a hit or a miss. Locations on the boards will have a single notation coordinate system which is made up of an alphabetic letter fr the colums and a number for the row e.g. A3. There are 5 ships that come in various sizes. They all need to be placed on the shipboard before the game can be played. They can be placed horizontally or vertically but must remain wthin the bounds of the board and cannot cross another ship already on the board.
+
+The second release will allow for the game to be extended to allow for two human players to play against eachother. It will also include the addition of a salvo gamemode. The salvo game is an updated version of the original game but the number of torpedos that can be fired is determined by the number of remaining ships the player has. 
+
+The third release has many new features. It will allow for an infinite number of boats to the game through the 'adaship_config.ini' file. It also includes a new gamemode called hidden mines. The hidden mines update means a set number of mines are placed on each players boards randomly during the setup phase. These are then displayed to the player during the game. If the opposing player hits the mine all immediately surrounding locations explode. Any ships in those exploded locations are then marked as hit. This third release also includes better computer targeting through to make th computer player more difficult to play against.
+
+To complete the development, each release will be broken down into smaller tasks, allowing for the sepration of concerns and logical steps for development. Each group of tasks will focus on a core part of functionality. This will mean they can be tested as smaller units before implementing into the rest of the code. This will ensure that all changes made in the code are completed gradually to reduce errors.
+
+#Decomposition of overall problem, epic style tasks
+
+<h4>Release 1 Tasks</h4>
+1)Setup the 'adaship_config.ini'
+2)Create Setup interface which will give the user the gamemode options
+3)Display shipboard for user to placeships
+4)Create autoplace ship function that will allow the user to have the system place ships
+5)Allow user to quit and reset their shipboard
+6)Continue once user is happy with completed shipboard
+7)Get computer to autoplace their ships
+8)Create turn based process 
+9)Get user to enter fire location
+10)Determine wether hit or miss and output result to player
+11)Create function to determine if win conditions have been met
+12)Allow user to quit game
+13)Get user to press a key to end turn
+
+<h4>Release 2 Tasks</h4>
+1)Allow user to input any valid board size through the 'adaship_config.ini'
+2)Update setup menu to include player vs player and salvo gamemode
+3)Implement function that allows for more than 1 coordinate to be entered.
+4)Create function tha tracks how many ships remain
+5)Repeat 'fire' for each coordinate from task 3
+6)Output result of each 'fire' to the user
+
+<h4>Release 3 Tasks</h4>
+1)Allow user to add any number of ships through the 'adaship_config.ini'
+2)Update setup menu to include hidden mines gamemode
+3)Create that randomly places mies on each players board
+4)Update hit -> If hit on mine mark hits on surrounding locations
+5)Update computer auto-hit by keeping track of hit locations and targeting surrounding pieces to determine which direction the ship is placed, once sunk select new random firing location 
+
+#Object Oriented design, Planed phased breakdown into smaller tasks
+
+<h3>Development</h3>
+#Tasks for each phase of development
+#QA through testing ad finding bugs
+#Reflect on key changes, innovations and how they were solved
+
+<h3>Evaluation</h3>
+#Analysis of key code, refactoring and code smells
+#Implementation and effective use of advanced programing principles
+#Showcase any innovations
+#Improved algorithms (research, design, implementation and testing)
+#Reflective review, opportuniies to improve
+
 <h3>Overview</h3>
 
 AdaShip is similar to the well known Battleships game. By default it is a 2 player game where each player takes turns in trying to elimenate the other players boats. To win the game you must destroy/sink all of your opponents boats.
