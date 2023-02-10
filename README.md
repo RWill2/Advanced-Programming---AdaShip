@@ -54,7 +54,16 @@ To complete the development, each release will be broken down into smaller tasks
 For the program to follow object oriented principles I plan to create several objects. The plan is to have a board object. This board will have x and y values that are used to setup the boards size and coordinates. It will also have various methods that track and validate the placement of ships. Players are also objects, give that both the human and computer player share some characteristics it allows for inheritance. Both players have will have a property that determines wether they are human or not. From the player class there will be a computer player class and a human player class. The computer player will inherit features from the player class. The human player will also inherit from the player class. This reduces code repetition as both human and computer players share features. However the computer player will be calling an automatic placement and automatic firing function whereas the human player is given options before these funcions can be called. Another possible object could be a ship object which contains the properties of each ship and keeps track of the hits each ship takes. 
 
 <h3>Development</h3>
-#Tasks for each phase of development
+<h4>Data Flow Diagram for Release 1</h4>
+https://app.diagrams.net/#G1zrv_Eb3DwqsYM9R7Ld0ypXyIbOuplufc
+
+#Release 1 tasks, code changes and review
+For the first release the data will move around the system as depicted in the above diagram. There is a class for the Player object as well as the Board and the Gamemode. There is also the possibility of having classes for objects like the missiles as the game develops and features such as the Salvo and Hidden Mines functionalities are added. The game begins through the creation of the menu which prmpts the user to select their gamemode. Once the gamemode and player types have been decided the boards are created for each player. Once both players and their boards have been setup the game is started using the information related to the selected gamemode. 
+
+During the first development phase the tasks will be implemented following the tasks set out above. The configuration file and menu for user will be setup first to follow the basic flow of the game. From there the Ship and Board classes will be implemented. This will then allow the ships to be placed and checked to ensure they are placed within the board limits. The creation of the utoplace function will be created and then improved to allow individual ships to be autoplaced. Once the board and ships are setup the system will the begin the game and then take turns getting firing locations. There will also be an autofire function which will be used by the computer player as well as te human player where requested. The system will have a function that determines wether a ship is hit, missed or sunk. I will also need to develop an option to allow the user to quit the game at any point throughout.
+
+The second development phase will include adding the salvo gamemode. This will be completed by adding a function that keeps track of how many ships are not sunk. I will then update the way missile locations are entered. This will include an array which will store the indivdual coordinates. From here the system can then idetify if each firing location has missed, hit or sunk a ship.
+
 #QA through testing ad finding bugs
 #Reflect on key changes, innovations and how they were solved
 
@@ -78,6 +87,3 @@ There are 5 ships that come in various sizes. They all need to be placed on the 
 The plan is to release the game in smaller releases that have been broken down into tasks. Release 1 will contain the basics required for the application to run as well as the core functionality for a single player vs computer game. Release 2 looks at expanding the game modes to allow 2 people to play together as well as adding a salvo game mode. The salvo mode means that the player will be able to fire as many missiles as they have ships still standing, for example if the player has 4 ships standing they can then fire 4 missiles at their enemies ships. Finally a third release could be in scope depending on time.
 
 For the first release the main goals are to have the configurtion file should be read by the system. From this the set-up interface is displayed allowing the player to select ther game mode, place/autoplace their ships. Once the player has placed all their ships in valid positions on the board the computer will then automatically place all of their ships in valid positions. The player and computer will then take turns firing/autofiring torpedos at their oponnents ships. The game is then won when all of the oponnents ships have been sunk.
-
-<h3>Data Flow Diagram for Release 1 Tasks 1 - 3</h3>
-https://app.diagrams.net/#G1zrv_Eb3DwqsYM9R7Ld0ypXyIbOuplufc
