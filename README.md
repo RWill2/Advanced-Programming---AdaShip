@@ -4,9 +4,16 @@
 <h3>Challenge Outline</h3>
 AdaShip is similar to the well known Battleships game. By default it is a 2 player game where each player takes turns in trying to elimenate the other players boats. To win the game you must destroy/sink all of your opponents boats.
 
-For this project there are 3 releases. The first release forms the well known Battleship game where the player will be playing against th computer. For a default game each player has 2 10x10 boards. One will be used for your ships, this is known as a shipboard and is where you will place you ships as well as hits made by your opponent. The other board is known as the targetboard. This is where you can keep track of where you have fired and if it was a hit or a miss. Locations on the boards will have a single notation coordinate system which is made up of an alphabetic letter for the column and a number for the row e.g. A3. There are 5 ships that come in various sizes. They all need to be placed on the shipboard before the game can be played. They can be placed horizontally or vertically but must remain wthin the bounds of the board and cannot cross another ship already on the board. The second release will allow for the game to be extended to allow for two human players to play against eachother. It will also include the addition of a salvo gamemode. The salvo game is an updated version of the original game but the number of torpedos that can be fired is determined by the number of remaining ships the player has. The third release has many new features. It will allow for an infinite number of boats to the game through the 'adaship_config.ini' file. It also includes a new gamemode called hidden mines. The hidden mines update means a set number of mines are placed on each players boards randomly during the setup phase. These are then displayed to the player during the game. If the opposing player hits the mine all immediately surrounding locations explode. Any ships in those exploded locations are then marked as hit. This third release also includes better computer targeting through to make th computer player more difficult to play against. To complete the development, each release will be broken down into smaller tasks, allowing for the sepration of concerns and logical steps for development. Each group of tasks will focus on a core part of functionality. This will mean they can be tested as smaller units before implementing into the rest of the code. This will ensure that all changes made in the code are completed gradually to reduce errors.
+For this project there are 3 releases. The first release forms the well known Battleship game where the player will be playing against th computer. For a default game each player has 2 10x10 boards. One will be used for your ships, this is known as a shipboard and is where you will place you ships as well as hits made by your opponent. The other board is known as the targetboard. This is where you can keep track of where you have fired and if it was a hit or a miss. Locations on the boards will have a single notation coordinate system which is made up of an alphabetic letter for the column and a number for the row e.g. A3. There are 5 ships that come in various sizes. They all need to be placed on the shipboard before the game can be played. They can be placed horizontally or vertically but must remain wthin the bounds of the board and cannot cross another ship already on the board. 
 
-<h4>Release 1 Tasks</h4>
+The plan is to release the game in smaller releases that have been broken down into tasks. Release 1 will contain the basics required for the application to run as well as the core functionality for a single player vs computer game. Release 2 looks at expanding the game modes to allow 2 people to play together as well as adding a salvo game mode. The salvo mode means that the player will be able to fire as many missiles as they have ships still standing, for example if the player has 4 ships standing they can then fire 4 missiles at their enemies ships. Finally a third release could be in scope depending on time. The second release will allow for the game to be extended to allow for two human players to play against eachother. It will also include the addition of a salvo gamemode. The salvo game is an updated version of the original game but the number of torpedos that can be fired is determined by the number of remaining ships the player has. The third release has many new features. It will allow for an infinite number of boats to the game through the 'adaship_config.ini' file. It also includes a new gamemode called hidden mines. The hidden mines update means a set number of mines are placed on each players boards randomly during the setup phase. These are then displayed to the player during the game. If the opposing player hits the mine all immediately surrounding locations explode. Any ships in those exploded locations are then marked as hit. This third release also includes better computer targeting through to make th computer player more difficult to play against. To complete the development, each release will be broken down into smaller tasks, allowing for the sepration of concerns and logical steps for development. Each group of tasks will focus on a core part of functionality. This will mean they can be tested as smaller units before implementing into the rest of the code. This will ensure that all changes made in the code are completed gradually to reduce errors. 
+
+<h4>Data Flow Diagram for Release 1</h4>
+![Screenshot_20221220_225206](https://user-images.githubusercontent.com/92785142/218505720-d983c390-3040-4e52-9504-adb263efbc20.png)
+
+
+<h4>Decomposition Of Problem</h4>
+<h5>Release 1 Tasks</h5>
 1)Setup the 'adaship_config.ini'<br>
 2)Create Setup interface which will give the user the gamemode options<br>
 3)Display shipboard for user to placeships<br>
@@ -21,7 +28,7 @@ For this project there are 3 releases. The first release forms the well known Ba
 12)Allow user to quit game<br>
 13)Get user to press a key to end turn
 
-<h4>Release 2 Tasks</h4>
+<h5>Release 2 Tasks</h5>
 1)Allow user to input any valid board size through the 'adaship_config.ini'<br>
 2)Update setup menu to include player vs player and salvo gamemode<br>
 3)Implement function that allows for more than 1 coordinate to be entered.<br>
@@ -29,7 +36,7 @@ For this project there are 3 releases. The first release forms the well known Ba
 5)Repeat 'fire' for each coordinate from task 3<br>
 6)Output result of each 'fire' to the user
 
-<h4>Release 3 Tasks</h4>
+<h5>Release 3 Tasks</h5>
 1)Allow user to add any number of ships through the 'adaship_config.ini'<br>
 2)Update setup menu to include hidden mines gamemode<br>
 3)Create that randomly places mines on each players board<br>
@@ -40,9 +47,6 @@ For this project there are 3 releases. The first release forms the well known Ba
 For the program to follow object oriented principles I plan to create several objects. The plan is to have a board object. This board will have x and y values that are used to setup the boards size and coordinates. It will also have various methods that track and validate the placement of ships. Players are also objects, given that both the human and computer player share some characteristics it allows for inheritance. Both players will have a property that determines wether they are human or not. From the Player class there will be a Computer Player class and a Human Player class. The Computer Player will inherit features from the Player class. The Human Player will also inherit from the Player class. This reduces code repetition as both Human and Computer players share features. However the Computer player will be calling an automatic placement and automatic firing function whereas the Human player is given options before these funcions can be called. Another possible object could be a ship object which contains the properties of each ship and keeps track of the hits each ship takes. 
 
 <h3>Development</h3>
-<h4>Data Flow Diagram for Release 1</h4>
-![Screenshot_20221220_225206](https://user-images.githubusercontent.com/92785142/218458339-13196364-1e8d-49b2-b66f-278d4b7f11ff.png)
-
 <h4>Phases Of Development</h4>
 For the first release the data will move around the system as depicted in the above diagram. There is a class for the Player object as well as the Board and the Gamemode. There is also the possibility of having classes for objects like the missiles as the game develops and features such as the Salvo and Hidden Mines functionalities are added. The game begins through the creation of the menu which prompts the user to select their gamemode. Once the gamemode and player types have been decided the boards are created for each player. Once both players and their boards have been setup the game is started using the information related to the selected gamemode. 
 
@@ -61,17 +65,16 @@ One of the main challenges was the autoplacing of ships. Ship autoplacement was 
 
 
 <h3>Evaluation</h3>
-#Analysis of key code, refactoring and code smells
-
+Refactoring is a crucial part of programming. It allows code to be clean, maintainable and efficient. Within my project refactoring can be seen in vars places but it is most visible in the 'headersReq.h'. This headers file stores all the required headers for the project. In the files where a header is required it calls this file. This reduces repetition of code as well as improving efficiency. This is because the program will only import the relevant libraries once instead of repeatedly calling them. During development these headers were in each file but during refactoring they were moved to the 'headersReq.h' to make the codecleaner and more efficient.
+![Headers](https://user-images.githubusercontent.com/92785142/218494937-883ea7f8-7df8-4f03-a662-3f76003e5f5f.png)
 
 <h4>Implementation of AP Principles</h4>
 Advanced programming principles like inheritance are shown in the Player object. Human and computer players share certain properties such as IsHuman.<br>
 ![Player Class](h![NPCPlayer Class](https://user-images.githubusercontent.com/92785142/218466407-007217b8-c2b3-4d86-9d66-2ea5c8ab59b9.png) <br>
-Below is the NPCPlayer class which inherits from Player class. It inherits features from the Player class whilst also having someof its own features such as calling fo a random move when it is time to take its turn.<br>
+Below is the NPCPlayer class which inherits from Player class. It inherits features from the Player class whilst also having some of its own features such as calling fo a random move when it is time to take its turn.<br>
 ttps://user-imag![HumanPlayer Class](https://user-images.githubusercontent.com/92785142/218466434-aca51d85-d539-44e4-b41a-f1c4f031c04e.png) <br>
 The HumanPlayer class also inherits from the Player class. This means that the NPC and Human players share some functionality which is why inheritance was chosen for my implementation.<br>
-es.githubusercontent.com/92785142/218466388-b25f5b5a-f458-43a2-914f-2e9f3614ca43.png)
-
+![HumanPlayer Class](https://user-images.githubusercontent.com/92785142/218493831-ff4b03a6-eaf2-42e7-bf4d-d38c06239da9.png)
 
 <h4>Innovations</h4>
 One of the innovations is the use of regular expressions within the application to get the board dimensions. The use of regular expressions makes this functionality more robust making the code less likely to break. This will compare the dimensions from the 'adaship_config.ini' with the expression to ensure the input from the file is a numericl value in the format it is expected to be in.  <br>
@@ -80,25 +83,15 @@ One of the innovations is the use of regular expressions within the application 
 Another innovative feature is the use of a 2d vector or the board. A 2d vector makes visualising the board simpler. This is because it looks like and behaves like the game board that is used in play. The coordinates of the game board map to positions in the vector. This makes it easier to build, develop, test and understand why objects on the board are behaving in a certain way. <br>
 ![2d board](https://user-images.githubusercontent.com/92785142/218472393-6a82eb28-bcb2-47be-8e65-3049ead10134.png) <br>
 
+<h4>Improved Algorithms</h4>
+To improve the games performance various aspects of the game were investigated. Looking at improving the computer player as well as the best way to make the code more reliable and effiecient. For improving the computer player I looked at ways the player can be more competitive and realistic in the way it plays te game. This included investigating various game startergies that the computer player could be coded with. This included only plaing ships on the edge of the board or ensuring ships don't touch each other. If I had reached the third release these startergies could have been implemented to make the computer player more realistic and a smarter player for the game.
 
-#Improved algorithms (research, design, implementation and testing)
+For improving game performance I used an enum. An enum behaves like a constant. These are great for keeping track of board and ship states. They are only defined once but can be used in many places within the code. Being able to define these constants once means they can be used as many times as required without any extra variables or values being needed for them to be used. Within the code these enum values are used to fill the 2d vector with the correct symbols and compare the state of the board tiles when validating the placement of the ships. 
+![enum](https://user-images.githubusercontent.com/92785142/218500294-9969068f-d058-463e-8c16-ea804383c06a.png)
 
-#Reflective review, opportuniies to improve
 <h4>Reflection & Opportunities For Improvement</h4>
-Overall this project did not go as planned. Due to various commitments as well as the challenges I faced during this project I did not achieve what I wanted to in the deadline set. The current state of the code shows that there are various functionalities missing. There is currently minimal validation of inputs. This can be seen in the reset and quit functions where it only accepts lowercase inputs. This can be improved by setting all user inputs to lower case to make the game work better and less likely to break. The board display is quite messy and not user friendly. To improve this in future I would look to spend more time improving the user experience when playing the game. This would include improving the flow of the game and the way information is presented to the user. To do this I could use colours on the board and add more feedback to he user so they are aware with the state of the game. A final improvement would be the splitting of the autoplacement functioality for the human player. Currently the code only allows for all ships to be autoplaced. To improve this I would change the design by reworking the way autoplacemnt works. It would include a loop for the placement of ships and then get inputs from the user on how they want that ship to be placed. Using this loop will allow for the ship placement to be better tracked meaning there will be more flexibility in the way the user can place their ships.
+Overall this project did not go as planned. Due to various commitments as well as the challenges I faced during this project I did not achieve what I wanted to in the deadline set. The current state of the code shows that there are various functionalities missing. There is currently minimal validation of inputs. This can be seen in the reset and quit functions where it only accepts lowercase inputs. This can be improved by setting all user inputs to lower case to make the game work better and less likely to break. The board display is quite messy and not user friendly. To improve this in future I would look to spend more time improving the user experience when playing the game. This would include improving the flow of the game and the way information is presented to the user. To do this I could use colours on the board and add more feedback to he user so they are aware with the state of the game. A final improvement would be the splitting of the autoplacement functionality for the human player. Currently the code only allows for all ships to be autoplaced. To improve this I would change the design by reworking the way autoplacemnt works. It would include a loop for the placement of ships and then get inputs from the user on how they want that ship to be placed. Using this loop will allow for the ship placement to be better tracked meaning there will be more flexibility in the way the user can place their ships.
+
+Looking back at the way I approached I see that I did not make frequent commits where small changes have been made. Instead my repositiry has few commits with large changes. This shows that I did not follow my original design and planning approach. Although in some cases this is fine for this project it did not work. It meant it was not clear where problems were occuring and it was also not visible how my game developed over time. What I shoud have done was create branches for each large release and then make the smallerchanges in those branches so it is clear where changes ae being made, ensuring they are thouroughly tested and accurat before moving onto the next step in that release.
 
 To conclude this project has been an intersting learning experience both technically and professionally. It has taught me lessons about advanced programming and the best practices. I have also learnt how to improve my estimation and time management skills. Before approaching this project I had underestimted the amount of time required to complete. Being able to assess the amount of time required for workis a crucial skill when making decisions to do with planning and work prioritisation. Having completed this project I have been able to improve this skill which has assisted in my professional development.
-
-<h3>Overview</h3>
-
-AdaShip is similar to the well known Battleships game. By default it is a 2 player game where each player takes turns in trying to elimenate the other players boats. To win the game you must destroy/sink all of your opponents boats.
-
-For a default game each player has 2 10x10 boards. One will be used for your ships, this is known as a shipboard and is where you will place you ships as well as hits made by your opponent. The other board is known as the targetboard. This is where you can keep track of where you have fired and if it was a hit or a miss. Locations on the boards will have a single notation coordinate system which is made up of an alphabetic letter fr the colums and a number for the row e.g. A3.
-
-There are 5 ships that come in various sizes. They all need to be placed on the shipboard before the game can be played. They can be placed horizontally or vertically but must remain wthin the bounds of the board and cannot cross another ship already on the board.
-
-<h3>Releases</h3>
-
-The plan is to release the game in smaller releases that have been broken down into tasks. Release 1 will contain the basics required for the application to run as well as the core functionality for a single player vs computer game. Release 2 looks at expanding the game modes to allow 2 people to play together as well as adding a salvo game mode. The salvo mode means that the player will be able to fire as many missiles as they have ships still standing, for example if the player has 4 ships standing they can then fire 4 missiles at their enemies ships. Finally a third release could be in scope depending on time.
-
-For the first release the main goals are to have the configurtion file should be read by the system. From this the set-up interface is displayed allowing the player to select ther game mode, place/autoplace their ships. Once the player has placed all their ships in valid positions on the board the computer will then automatically place all of their ships in valid positions. The player and computer will then take turns firing/autofiring torpedos at their oponnents ships. The game is then won when all of the oponnents ships have been sunk.
